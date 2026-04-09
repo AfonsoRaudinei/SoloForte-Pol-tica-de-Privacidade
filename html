@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade — SoloForte</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: #f7f8fa;
+      color: #1a1a2e;
+      line-height: 1.75;
+    }
+    header {
+      background: #1b5e20;
+      color: #fff;
+      padding: 32px 24px 28px;
+      text-align: center;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.3px; }
+    header p { font-size: 0.9rem; opacity: 0.8; margin-top: 6px; }
+    main {
+      max-width: 760px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      padding: 48px 52px;
+    }
+    @media (max-width: 640px) {
+      main { margin: 0; border-radius: 0; padding: 28px 20px; }
+    }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b5e20;
+      margin: 36px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #e8f5e9;
+    }
+    h2:first-of-type { margin-top: 0; }
+    p { font-size: 0.95rem; margin-bottom: 12px; color: #2d2d2d; }
+    ul { padding-left: 22px; margin-bottom: 12px; }
+    li { font-size: 0.95rem; margin-bottom: 6px; color: #2d2d2d; }
+    strong { color: #1b5e20; }
+    .chip {
+      display: inline-block;
+      background: #e8f5e9;
+      color: #1b5e20;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border-radius: 99px;
+      padding: 2px 10px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .alert {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 4px;
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      margin: 16px 0;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+      padding: 28px 16px 40px;
+    }
+    a { color: #1b5e20; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🌱 SoloForte — Política de Privacidade</h1>
+  <p>Última atualização: abril de 2025 &nbsp;|&nbsp; Versão 1.1</p>
+</header>
+
+<main>
+
+  <h2>1. Quem somos</h2>
+  <p>
+    O <strong>SoloForte</strong> é um aplicativo móvel voltado para agrônomos e gestores agrícolas,
+    desenvolvido e operado por <strong>SoloForte Tecnologia Agrícola</strong>, com sede no Brasil.
+    Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos
+    os seus dados pessoais ao utilizar o aplicativo SoloForte (iOS).
+  </p>
+  <p>Dúvidas? Entre em contato: <a href="mailto:privacidade@soloforte.com">privacidade@soloforte.com</a></p>
+
+  <h2>2. Dados coletados</h2>
+  <p>Coletamos apenas os dados necessários para o funcionamento do aplicativo:</p>
+  <ul>
+    <li><strong>Dados de conta:</strong> nome, endereço de e-mail, senha (hash — nunca em texto puro).</li>
+    <li><strong>Dados agrícolas:</strong> geometria de talhões (polígonos), ocorrências de campo, relatórios de visita, registros de NDVI e dados de safra inseridos por você.</li>
+    <li><strong>Dados de localização:</strong> coordenadas GPS usadas exclusivamente para georreferenciamento de talhões e ocorrências dentro do app. Não compartilhamos sua localização com terceiros.</li>
+    <li><strong>Dados de uso:</strong> logs de autenticação (Supabase Auth) para segurança da conta. Não usamos analytics comportamentais de terceiros.</li>
+    <li><strong>Dados de pagamento:</strong> processados diretamente pelo <strong>Mercado Pago</strong>. O SoloForte não armazena dados de cartão de crédito.</li>
+  </ul>
+
+  <h2>3. Como usamos seus dados</h2>
+  <ul>
+    <li>Autenticação e segurança da sua conta.</li>
+    <li>Sincronização dos seus dados agrícolas entre dispositivos.</li>
+    <li>Geração de relatórios técnicos de visita.</li>
+    <li>Processamento de pagamentos de planos (Bronze, Prata, Ouro).</li>
+    <li>Envio de e-mails transacionais (recuperação de senha, confirmação de conta).</li>
+  </ul>
+  <p><strong>Não usamos seus dados para fins publicitários, nem os vendemos a terceiros.</strong></p>
+
+  <h2>4. Armazenamento e segurança</h2>
+  <p>
+    Seus dados são armazenados localmente no dispositivo (SQLite — offline-first) e
+    sincronizados com servidores seguros hospedados pela <strong>Supabase</strong> (infraestrutura AWS,
+    região América do Sul). A comunicação é criptografada via TLS 1.2+. Dados em repouso
+    são protegidos por Row Level Security (RLS) — cada usuário acessa exclusivamente os próprios dados.
+  </p>
+  <div class="alert">
+    ⚠️ O SoloForte opera em modelo <strong>offline-first</strong>: dados criados sem conexão
+    são salvos localmente e sincronizados quando a rede estiver disponível.
+  </div>
+
+  <h2>5. Compartilhamento de dados</h2>
+  <p>Seus dados <strong>não são vendidos</strong>. Compartilhamos apenas com:</p>
+  <ul>
+    <li><strong>Supabase</strong> — backend, autenticação e armazenamento seguro.</li>
+    <li><strong>Mercado Pago</strong> — processamento de pagamentos.</li>
+    <li><strong>Apple</strong> — distribuição via App Store (métricas agregadas de crash, mediante seu consentimento no iOS).</li>
+  </ul>
+
+  <h2>6. Retenção de dados</h2>
+  <p>
+    Mantemos seus dados enquanto sua conta estiver ativa. Após a exclusão da conta,
+    seus dados pessoais são removidos em até <strong>30 dias</strong>, exceto registros
+    exigidos por obrigações legais (ex.: dados fiscais de pagamentos — 5 anos, conforme legislação brasileira).
+  </p>
+
+  <h2>7. Seus direitos (LGPD)</h2>
+  <p>Conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem direito a:</p>
+  <ul>
+    <li>Acessar seus dados pessoais.</li>
+    <li>Corrigir dados incorretos ou desatualizados.</li>
+    <li>Solicitar portabilidade dos seus dados.</li>
+    <li>Solicitar a exclusão dos seus dados pessoais.</li>
+    <li>Revogar o consentimento a qualquer momento.</li>
+  </ul>
+  <p>
+    Para exercer esses direitos, acesse <strong>Configurações → Minha Conta → Excluir conta</strong>
+    dentro do app, ou envie uma solicitação para <a href="mailto:privacidade@soloforte.com">privacidade@soloforte.com</a>.
+  </p>
+
+  <h2>8. Exclusão de conta</h2>
+  <p>
+    Você pode excluir sua conta diretamente no app em <strong>Configurações → Minha Conta → Excluir conta</strong>.
+    A exclusão é irreversível e remove todos os seus dados pessoais dos nossos servidores dentro de 30 dias.
+    Dados armazenados localmente no dispositivo devem ser removidos manualmente desinstalando o app.
+  </p>
+
+  <h2>9. Menores de idade</h2>
+  <p>
+    O SoloForte é destinado exclusivamente a profissionais de agronomia e adultos (+18 anos).
+    Não coletamos dados de menores de idade intencionalmente.
+  </p>
+
+  <h2>10. Alterações nesta política</h2>
+  <p>
+    Podemos atualizar esta Política periodicamente. Notificaremos mudanças significativas
+    via e-mail cadastrado ou notificação no app. O uso continuado do aplicativo após
+    as alterações implica aceite dos novos termos.
+  </p>
+
+  <h2>11. Contato</h2>
+  <p>
+    <strong>SoloForte Tecnologia Agrícola</strong><br />
+    E-mail: <a href="mailto:privacidade@soloforte.com">privacidade@soloforte.com</a><br />
+    Brasil
+  </p>
+
+</main>
+
+<footer>
+  © 2025 SoloForte Tecnologia Agrícola. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>
