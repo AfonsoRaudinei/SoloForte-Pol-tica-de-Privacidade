@@ -1,442 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Política de Privacidade — SoloForte</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --petrol:        #2C5564;
-      --petrol-deep:   #1C3A46;
-      --petrol-light:  #EAF1F4;
-      --samsung:       #1428A0;
-      --samsung-mid:   #1E3FCA;
-      --samsung-light: #E8ECFA;
-      --silver:        #B0BEC5;
-      --silver-light:  #ECEFF1;
-      --ice:           #F7F9FA;
-      --white:         #FFFFFF;
-      --text-primary:  #1A2530;
-      --text-secondary:#546E7A;
-      --text-muted:    #90A4AE;
-      --border:        #CFD8DC;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
-      background: var(--ice);
-      color: var(--text-primary);
-      line-height: 1.75;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── HEADER ── */
-    header {
-      background: linear-gradient(135deg, var(--petrol-deep) 0%, var(--petrol) 50%, var(--samsung) 100%);
-      color: var(--white);
-      position: relative;
-      overflow: hidden;
-    }
-    header::before {
-      content: '';
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 260px; height: 260px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-    }
-    header::after {
-      content: '';
-      position: absolute;
-      bottom: -40px; left: 30%;
-      width: 180px; height: 180px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.03);
-    }
-    .header-inner {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 44px 32px 40px;
-      position: relative;
-      z-index: 1;
-    }
-    .logo-wrap { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
-    .logo-mark { width: 52px; height: 52px; flex-shrink: 0; }
-    .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
-    .logo-text .brand { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; color: var(--white); }
-    .logo-text .tagline { font-size: 0.72rem; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
-    .header-divider { height: 1px; background: rgba(255,255,255,0.12); margin: 0 0 24px; }
-    .header-title { font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
-    .header-meta { font-size: 0.8rem; color: rgba(255,255,255,0.55); display: flex; gap: 16px; flex-wrap: wrap; }
-    .header-meta span::before { content: '·'; margin-right: 8px; opacity: 0.5; }
-    .header-meta span:first-child::before { content: none; }
-
-    /* ── BRAND STRIP ── */
-    .brand-strip { background: var(--petrol-deep); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .brand-strip-inner {
-      max-width: 760px; margin: 0 auto; padding: 16px 32px;
-      display: flex; gap: 32px; overflow-x: auto; scrollbar-width: none;
-    }
-    .brand-strip-inner::-webkit-scrollbar { display: none; }
-    .brand-pill { display: flex; align-items: center; gap: 8px; white-space: nowrap; font-size: 0.78rem; color: rgba(255,255,255,0.55); font-weight: 500; }
-    .brand-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--samsung-mid); flex-shrink: 0; }
-
-    /* ── PAGE NAV ── */
-    .page-nav { max-width: 760px; margin: 0 auto; padding: 16px 32px; display: flex; gap: 8px; }
-    .page-nav a {
-      font-size: 0.82rem; padding: 6px 14px; border-radius: 20px;
-      text-decoration: none; font-weight: 500; transition: all 0.15s;
-    }
-    .page-nav a.active { background: var(--samsung); color: var(--white); }
-    .page-nav a:not(.active) { background: var(--white); color: var(--petrol); border: 1px solid var(--border); }
-    .page-nav a:not(.active):hover { border-color: var(--samsung); color: var(--samsung); }
-
-    /* ── MAIN ── */
-    main {
-      max-width: 760px; margin: 16px auto 0; background: var(--white);
-      border-radius: 16px;
-      box-shadow: 0 2px 24px rgba(28,58,70,0.08), 0 1px 4px rgba(28,58,70,0.04);
-      overflow: hidden;
-    }
-
-    /* ── TOC ── */
-    .toc { background: var(--silver-light); border-bottom: 1px solid var(--border); padding: 20px 32px; }
-    .toc-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
-    .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 4px 16px; }
-    .toc-grid a { font-size: 0.8rem; color: var(--petrol); text-decoration: none; padding: 3px 0; display: flex; align-items: center; gap: 6px; transition: color 0.15s; }
-    .toc-grid a:hover { color: var(--samsung); }
-    .toc-grid a::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--silver); flex-shrink: 0; }
-
-    /* ── CONTENT ── */
-    .content { padding: 40px 40px 48px; }
-
-    .section { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
-    .section:last-of-type { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-    h2 {
-      font-size: 0.95rem; font-weight: 700; color: var(--petrol);
-      margin-bottom: 14px; display: flex; align-items: center; gap: 10px;
-      scroll-margin-top: 16px;
-    }
-    .section-num {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 24px; height: 24px; border-radius: 6px;
-      background: var(--petrol-light); color: var(--petrol);
-      font-size: 0.72rem; font-weight: 800; flex-shrink: 0;
-    }
-
-    p { font-size: 0.92rem; margin-bottom: 10px; color: var(--text-secondary); }
-    p:last-child { margin-bottom: 0; }
-
-    ul { padding-left: 0; margin: 10px 0; list-style: none; }
-    li {
-      font-size: 0.92rem; color: var(--text-secondary);
-      padding: 6px 0 6px 20px; position: relative;
-      border-bottom: 1px solid var(--silver-light);
-    }
-    li:last-child { border-bottom: none; }
-    li::before {
-      content: ''; position: absolute; left: 0; top: 14px;
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--petrol); opacity: 0.4;
-    }
-
-    strong { color: var(--text-primary); font-weight: 600; }
-    a { color: var(--samsung); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── ALERTAS ── */
-    .alert { display: flex; gap: 12px; align-items: flex-start; border-radius: 10px; padding: 14px 16px; font-size: 0.87rem; margin: 16px 0; line-height: 1.55; }
-    .alert-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-    .alert.warning { background: #FFF8E6; border-left: 3px solid #F0A500; color: #7A5200; }
-    .alert.info    { background: var(--samsung-light); border-left: 3px solid var(--samsung-mid); color: #12287A; }
-    .alert.neutral { background: var(--petrol-light); border-left: 3px solid var(--petrol); color: var(--petrol-deep); }
-
-    /* ── DIREITOS GRID ── */
-    .rights-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 14px 0; }
-    .right-item {
-      background: var(--petrol-light); border-radius: 10px;
-      padding: 12px 14px; font-size: 0.82rem; color: var(--petrol-deep);
-      display: flex; align-items: flex-start; gap: 8px; line-height: 1.45;
-    }
-    .right-item::before {
-      content: '✓'; font-weight: 700; color: var(--petrol);
-      font-size: 0.85rem; flex-shrink: 0; margin-top: 1px;
-    }
-
-    /* ── PARCEIROS ── */
-    .partners { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; }
-    .partner-row {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 12px 14px; border-radius: 10px;
-      border: 1px solid var(--border); background: var(--white);
-      font-size: 0.88rem; color: var(--text-secondary);
-    }
-    .partner-name { font-weight: 600; color: var(--text-primary); min-width: 110px; font-size: 0.85rem; }
-
-    /* ── CONTACT ── */
-    .contact-card {
-      background: linear-gradient(135deg, var(--petrol-light) 0%, var(--samsung-light) 100%);
-      border-radius: 12px; padding: 20px 24px; display: grid; gap: 10px;
-    }
-    .contact-row { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--text-secondary); }
-    .contact-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); min-width: 75px; }
-
-    /* ── FOOTER ── */
-    footer { max-width: 760px; margin: 0 auto; padding: 24px 32px 48px; }
-    .footer-inner {
-      background: linear-gradient(135deg, var(--petrol-deep) 0%, var(--samsung) 100%);
-      border-radius: 14px; padding: 28px 32px; display: flex; flex-direction: column; gap: 16px;
-    }
-    .footer-logo { display: flex; align-items: center; gap: 10px; }
-    .footer-logo .brand { color: var(--white); font-weight: 700; font-size: 1rem; }
-    .footer-logo .tagline { color: rgba(255,255,255,0.5); font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; }
-    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
-    .footer-links a { color: rgba(255,255,255,0.55); font-size: 0.8rem; text-decoration: none; transition: color 0.15s; }
-    .footer-links a:hover { color: var(--white); }
-    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.3); padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .header-inner { padding: 32px 20px 28px; }
-      .brand-strip-inner { padding: 14px 20px; }
-      .page-nav { padding: 12px 20px; }
-      main { margin: 0; border-radius: 0; }
-      .content { padding: 28px 20px 40px; }
-      .toc { padding: 16px 20px; }
-      .rights-grid { grid-template-columns: 1fr; }
-      footer { padding: 16px 0 0; }
-      .footer-inner { border-radius: 0; }
-    }
-  </style>
+  <meta name="description" content="Política de Privacidade do aplicativo SoloForte para iOS e Android.">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-  <div class="header-inner">
-    <div class="logo-wrap">
-      <svg class="logo-mark" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="SoloForte">
-        <rect width="52" height="52" rx="13" fill="rgba(255,255,255,0.08)"/>
-        <rect x="8" y="32" width="36" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
-        <rect x="8" y="39" width="36" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-        <path d="M26 30 L26 18" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-        <path d="M26 22 C22 20 18 15 20 10 C24 12 27 17 26 22Z" fill="rgba(255,255,255,0.75)"/>
-        <path d="M26 25 C30 23 35 18 33 12 C29 14 26 20 26 25Z" fill="white"/>
-        <path d="M26 30 C24 32 21 33 20 36" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-        <path d="M26 30 C28 32 31 33 32 36" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="26" cy="18" r="2.5" fill="rgba(255,255,255,0.9)"/>
-      </svg>
-      <div class="logo-text">
-        <span class="brand">SoloForte</span>
-        <span class="tagline">Gestão Agronômica</span>
-      </div>
+  <header>
+    <div class="wrap brand">
+      <strong>SoloForte</strong>
+      <nav>
+        <a href="index.html">Privacidade</a>
+        <a href="exclusao-de-conta.html">Excluir conta</a>
+        <a href="suporte.html">Suporte</a>
+      </nav>
     </div>
-    <div class="header-divider"></div>
-    <div class="header-title">Política de Privacidade — iOS</div>
-    <div class="header-meta">
-      <span>Versão 1.1</span>
-      <span>Abril de 2025</span>
-      <span>Goiânia — GO</span>
-    </div>
-  </div>
-</header>
+  </header>
+  <main class="wrap">
+    <article>
+      <h1>Política de Privacidade</h1>
+      <p class="updated">SoloForte para iPhone e Android · 8 de novembro de 2026</p>
 
-<div class="brand-strip">
-  <div class="brand-strip-inner">
-    <div class="brand-pill"><span class="dot"></span>Seus dados são seus</div>
-    <div class="brand-pill"><span class="dot"></span>Zero venda de informações</div>
-    <div class="brand-pill"><span class="dot"></span>Offline-first &amp; criptografia TLS</div>
-    <div class="brand-pill"><span class="dot"></span>LGPD — Lei 13.709/2018</div>
-    <div class="brand-pill"><span class="dot"></span>Row Level Security no banco</div>
-  </div>
-</div>
+      <p>Esta página descreve como o aplicativo SoloForte trata dados pessoais de quem cria uma conta e usa o app na App Store ou na Google Play. O controlador é SoloForte. O contato de privacidade é <a href="mailto:privacidade@soloforte.app">privacidade@soloforte.app</a>.</p>
 
-<nav class="page-nav" aria-label="Navegação entre documentos">
-  <a href="politica-de-privacidade.html" class="active">Política de Privacidade</a>
-  <a href="termos-de-uso.html">Termos de Uso</a>
-</nav>
-
-<main>
-  <nav class="toc" aria-label="Índice">
-    <div class="toc-label">Índice de seções</div>
-    <div class="toc-grid">
-      <a href="#s1">Quem somos</a>
-      <a href="#s2">Dados coletados</a>
-      <a href="#s3">Como usamos seus dados</a>
-      <a href="#s4">Armazenamento e segurança</a>
-      <a href="#s5">Compartilhamento</a>
-      <a href="#s6">Retenção de dados</a>
-      <a href="#s7">Seus direitos (LGPD)</a>
-      <a href="#s8">Exclusão de conta</a>
-      <a href="#s9">Menores de idade</a>
-      <a href="#s10">Alterações nesta política</a>
-      <a href="#s11">Contato</a>
-    </div>
-  </nav>
-
-  <div class="content">
-
-    <section class="section" id="s1">
-      <h2><span class="section-num">1</span>Quem somos</h2>
-      <p>O <strong>SoloForte</strong> é um aplicativo móvel voltado para agrônomos e gestores agrícolas, desenvolvido e operado pela <strong>SoloForte Tecnologia Agrícola</strong>, com sede no Brasil.</p>
-      <p>Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos os seus dados pessoais ao utilizar o aplicativo SoloForte (iOS).</p>
-      <div class="alert neutral">
-        <span class="alert-icon">🌱</span>
-        <span>Dúvidas sobre privacidade? Entre em contato: <a href="mailto:privacidade@soloforte.com">privacidade@soloforte.com</a></span>
-      </div>
-    </section>
-
-    <section class="section" id="s2">
-      <h2><span class="section-num">2</span>Dados coletados</h2>
-      <p>Coletamos apenas os dados necessários para o funcionamento do aplicativo:</p>
+      <h2>1. Dados que o app trata</h2>
       <ul>
-        <li><strong>Dados de conta:</strong> nome, endereço de e-mail, senha (hash — nunca em texto puro).</li>
-        <li><strong>Dados agrícolas:</strong> geometria de talhões (polígonos), ocorrências de campo, relatórios de visita, registros de NDVI e dados de safra inseridos por você.</li>
-        <li><strong>Dados de localização:</strong> coordenadas GPS usadas exclusivamente para georreferenciamento de talhões e ocorrências dentro do app. Não compartilhamos sua localização com terceiros.</li>
-        <li><strong>Dados de uso:</strong> logs de autenticação (Supabase Auth) para segurança da conta. Não usamos analytics comportamentais de terceiros.</li>
-        <li><strong>Dados de pagamento:</strong> processados diretamente pelo Mercado Pago. O SoloForte não armazena dados de cartão de crédito.</li>
+        <li><strong>Conta:</strong> nome, e-mail e senha. A senha fica no serviço de autenticação, como hash.</li>
+        <li><strong>Localização precisa:</strong> coordenadas enquanto o app está em uso, para o mapa, visitas de campo, talhões e ocorrências. A permissão pedida é a de uso com o app aberto.</li>
+        <li><strong>Fotos:</strong> imagens que você fotografa ou escolhe para anexar a ocorrências, relatórios e perfil.</li>
+        <li><strong>Áudio:</strong> gravação de até 30 segundos no ponto da ocorrência. O arquivo fica com a ocorrência e sincroniza com a conta.</li>
+        <li><strong>Conteúdo agrícola:</strong> clientes, fazendas, talhões, visitas, ocorrências, relatórios e anotações que você insere.</li>
+        <li><strong>Telefone:</strong> números que você digita em cadastros, como cliente ou contato de um caso.</li>
+        <li><strong>Preferências e cache:</strong> ajustes do app e dados salvos no aparelho para funcionar sem internet.</li>
+        <li><strong>Mensagens de feedback:</strong> o texto que você envia pelo próprio app.</li>
       </ul>
-    </section>
+      <p>O app não usa esses dados para publicidade e não faz rastreamento entre aplicativos.</p>
 
-    <section class="section" id="s3">
-      <h2><span class="section-num">3</span>Como usamos seus dados</h2>
+      <h2>2. Para que servem</h2>
+      <p>Os dados servem para autenticar a conta, registrar o trabalho de campo, mostrar o mapa, gerar relatórios, guardar o conteúdo offline e sincronizar quando houver internet.</p>
+      <p>A base legal, na LGPD, é a execução do serviço que você contratou ao criar a conta, o consentimento das permissões do aparelho (localização, câmera, microfone, fotos e notificações) e o legítimo interesse de segurança da conta.</p>
+
+      <h2>3. Com quem os dados são compartilhados</h2>
       <ul>
-        <li>Autenticação e segurança da sua conta.</li>
-        <li>Sincronização dos seus dados agrícolas entre dispositivos.</li>
-        <li>Geração de relatórios técnicos de visita.</li>
-        <li>Processamento de pagamentos de planos (Bronze, Prata, Ouro).</li>
-        <li>Envio de e-mails transacionais (recuperação de senha, confirmação de conta).</li>
+        <li><strong>Supabase:</strong> autenticação, banco de dados e armazenamento dos arquivos da conta (fotos e áudio).</li>
+        <li><strong>Provedores de mapa</strong> (OpenStreetMap, ArcGIS e OpenTopoMap): o app pede os tiles do mapa. Essa requisição leva o identificador técnico do app, sem o cadastro agrícola.</li>
+        <li><strong>Apple e Google:</strong> distribuição do aplicativo nas lojas.</li>
       </ul>
-      <div class="alert info">
-        <span class="alert-icon">ℹ️</span>
-        <span><strong>Não usamos seus dados para fins publicitários, nem os vendemos a terceiros.</strong></span>
+      <p>O SoloForte não vende dados pessoais. A versão atual do app não cobra dentro do aplicativo e não guarda número de cartão.</p>
+
+      <h2>4. Onde ficam e por quanto tempo</h2>
+      <p>O conteúdo de campo fica no aparelho para uso offline e é enviado à conta na nuvem quando a sincronização está ligada. A comunicação com o servidor usa HTTPS.</p>
+      <p>Os dados da conta permanecem enquanto a conta existir. Quando a exclusão termina, a conta de acesso e os registros ligados a ela são apagados no servidor. Um registro só permanece se uma obrigação legal exigir a guarda.</p>
+      <p>No aparelho, a exclusão feita dentro do app também apaga os dados locais daquela conta. Se a exclusão for pedida só por e-mail, os arquivos que continuarem no aparelho saem quando você apaga os dados do app ou desinstala.</p>
+
+      <h2>5. Seus direitos</h2>
+      <p>Você pode pedir acesso, correção, portabilidade, informação sobre o uso e revogação de consentimento em <a href="mailto:privacidade@soloforte.app">privacidade@soloforte.app</a>.</p>
+
+      <h2 id="exclusao">6. Exclusão da conta</h2>
+      <div class="note">
+        <p>No aplicativo, o caminho é <strong>Configurações → Excluir minha conta</strong>. A confirmação avisa que a exclusão é permanente. O app remove a conta no servidor, apaga os dados locais dessa conta e encerra a sessão.</p>
+        <p>Quem não consegue abrir o app pede a exclusão nesta página: <a href="exclusao-de-conta.html">Excluir conta SoloForte</a>.</p>
       </div>
-    </section>
 
-    <section class="section" id="s4">
-      <h2><span class="section-num">4</span>Armazenamento e segurança</h2>
-      <p>Seus dados são armazenados localmente no dispositivo (SQLite — offline-first) e sincronizados com servidores seguros hospedados pela <strong>Supabase</strong> (infraestrutura AWS, região América do Sul).</p>
-      <ul>
-        <li>Comunicação criptografada via <strong>TLS 1.2+</strong> em trânsito.</li>
-        <li><strong>Row Level Security (RLS)</strong> — cada usuário acessa exclusivamente os próprios dados.</li>
-        <li>Senhas armazenadas como hash — nunca em texto puro.</li>
-      </ul>
-      <div class="alert warning">
-        <span class="alert-icon">⚠️</span>
-        <span>O SoloForte opera em modelo <strong>offline-first</strong>: dados criados sem conexão são salvos localmente e sincronizados quando a rede estiver disponível.</span>
-      </div>
-    </section>
+      <h2>7. Maiores de 18 anos</h2>
+      <p>O SoloForte é destinado a profissionais de campo, maiores de 18 anos. Não é um app para crianças.</p>
 
-    <section class="section" id="s5">
-      <h2><span class="section-num">5</span>Compartilhamento de dados</h2>
-      <p>Seus dados <strong>não são vendidos</strong>. Compartilhamos apenas com parceiros estritamente necessários para o funcionamento do serviço:</p>
-      <div class="partners">
-        <div class="partner-row">
-          <span class="partner-name">Supabase</span>
-          <span>Backend, autenticação e armazenamento seguro na nuvem.</span>
-        </div>
-        <div class="partner-row">
-          <span class="partner-name">Mercado Pago</span>
-          <span>Processamento de pagamentos. Nenhum dado de cartão é armazenado pelo SoloForte.</span>
-        </div>
-        <div class="partner-row">
-          <span class="partner-name">Apple</span>
-          <span>Distribuição via App Store. Métricas agregadas de crash, mediante seu consentimento no iOS.</span>
-        </div>
-      </div>
-    </section>
+      <h2>8. Alterações</h2>
+      <p>Quando esta política mudar, a data no topo desta página muda junto. O uso do app depois da publicação vale como ciência da nova versão.</p>
 
-    <section class="section" id="s6">
-      <h2><span class="section-num">6</span>Retenção de dados</h2>
-      <p>Mantemos seus dados enquanto sua conta estiver ativa. Após a exclusão da conta, seus dados pessoais são removidos em até <strong>30 dias</strong>, exceto registros exigidos por obrigações legais — como dados fiscais de pagamentos, retidos por 5 anos conforme a legislação brasileira.</p>
-    </section>
-
-    <section class="section" id="s7">
-      <h2><span class="section-num">7</span>Seus direitos (LGPD)</h2>
-      <p>Conforme a Lei Geral de Proteção de Dados (<strong>Lei nº 13.709/2018</strong>), você tem direito a:</p>
-      <div class="rights-grid">
-        <div class="right-item">Acessar seus dados pessoais</div>
-        <div class="right-item">Corrigir dados incorretos ou desatualizados</div>
-        <div class="right-item">Solicitar portabilidade dos seus dados</div>
-        <div class="right-item">Solicitar a exclusão dos seus dados</div>
-        <div class="right-item">Revogar o consentimento a qualquer momento</div>
-      </div>
-      <p>Para exercer esses direitos, acesse <strong>Configurações → Minha Conta → Excluir conta</strong> dentro do app, ou envie uma solicitação para <a href="mailto:privacidade@soloforte.com">privacidade@soloforte.com</a>.</p>
-    </section>
-
-    <section class="section" id="s8">
-      <h2><span class="section-num">8</span>Exclusão de conta</h2>
-      <p>Você pode excluir sua conta diretamente no app em <strong>Configurações → Minha Conta → Excluir conta</strong>. A exclusão é irreversível e remove todos os seus dados pessoais dos nossos servidores dentro de 30 dias.</p>
-      <p>Dados armazenados localmente no dispositivo devem ser removidos manualmente desinstalando o app.</p>
-    </section>
-
-    <section class="section" id="s9">
-      <h2><span class="section-num">9</span>Menores de idade</h2>
-      <p>O SoloForte é destinado exclusivamente a profissionais de agronomia e adultos (maiores de 18 anos). Não coletamos dados de menores de idade intencionalmente. Caso identifiquemos tal situação, os dados serão removidos imediatamente.</p>
-    </section>
-
-    <section class="section" id="s10">
-      <h2><span class="section-num">10</span>Alterações nesta política</h2>
-      <p>Podemos atualizar esta Política periodicamente. Notificaremos mudanças significativas via e-mail cadastrado ou notificação no app. O uso continuado do aplicativo após as alterações implica aceite dos novos termos.</p>
-    </section>
-
-    <section class="section" id="s11">
-      <h2><span class="section-num">11</span>Contato</h2>
-      <div class="contact-card">
-        <div class="contact-row">
-          <span class="contact-label">Empresa</span>
-          <strong>SoloForte Tecnologia Agrícola</strong>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Privacidade</span>
-          <a href="mailto:privacidade@soloforte.com">privacidade@soloforte.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Suporte</span>
-          <a href="mailto:suporte@soloforte.com">suporte@soloforte.com</a>
-        </div>
-        <div class="contact-row">
-          <span class="contact-label">Termos</span>
-          <a href="termos-de-uso.html">Termos de Uso</a>
-        </div>
-      </div>
-    </section>
-
-  </div>
-</main>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <svg width="32" height="32" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="52" height="52" rx="13" fill="rgba(255,255,255,0.08)"/>
-        <rect x="8" y="32" width="36" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
-        <rect x="8" y="39" width="36" height="6" rx="3" fill="rgba(255,255,255,0.08)"/>
-        <path d="M26 30 L26 18" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-        <path d="M26 22 C22 20 18 15 20 10 C24 12 27 17 26 22Z" fill="rgba(255,255,255,0.75)"/>
-        <path d="M26 25 C30 23 35 18 33 12 C29 14 26 20 26 25Z" fill="white"/>
-        <circle cx="26" cy="18" r="2.5" fill="rgba(255,255,255,0.9)"/>
-      </svg>
-      <div>
-        <div class="brand">SoloForte</div>
-        <div class="tagline">Gestão Agronômica</div>
-      </div>
-    </div>
-    <div class="footer-links">
-      <a href="politica-de-privacidade.html">Política de Privacidade</a>
-      <a href="termos-de-uso.html">Termos de Uso</a>
-      <a href="mailto:suporte@soloforte.com">Suporte</a>
-      <a href="mailto:privacidade@soloforte.com">Privacidade</a>
-    </div>
-    <div class="footer-copy">
-      © 2025 SoloForte Tecnologia Agrícola. Todos os direitos reservados. Goiânia — GO, Brasil.
-    </div>
-  </div>
-</footer>
-
+      <h2>9. Contato</h2>
+      <p>Privacidade e exclusão de conta: <a href="mailto:privacidade@soloforte.app">privacidade@soloforte.app</a><br>
+      Suporte de uso do app: <a href="suporte.html">página de suporte</a></p>
+    </article>
+  </main>
+  <footer class="wrap">
+    <p>SoloForte · <a href="index.html">Privacidade</a> · <a href="exclusao-de-conta.html">Excluir conta</a> · <a href="suporte.html">Suporte</a></p>
+  </footer>
 </body>
 </html>
